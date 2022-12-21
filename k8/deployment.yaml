@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flightbooking-deployment
+  namespace: chetana
+  labels:
+    app: flightbooking
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flightbooking
+  template:
+    metadata:
+      labels:
+        app: flightbooking
+    spec:
+      containers:
+      - name: flightbooking
+        image: chetanasai/projectrepo:0.1.2
+        ports:
+        - containerPort: 8080
